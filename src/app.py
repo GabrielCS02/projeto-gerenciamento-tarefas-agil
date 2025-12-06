@@ -12,22 +12,31 @@ def create_task():
     data = request.json
     title = data.get("title")
     description = data.get("description")
+    priority = data.get("priority", "Média")  # NOVO
 
     if not title:
         return jsonify({"error": "Título obrigatório"}), 400
 
-    task = Task(current_id, title, description)
+    task = Task(current_id, title, description, priority)  # ALTERADO
     tasks.append(task)
     current_id += 1
 
     return jsonify({"message": "Tarefa criada com sucesso"}), 201
 
+
 @app.route("/tasks", methods=["GET"])
 def list_tasks():
     return jsonify([
-        {"id": t.id, "title": t.title, "description": t.description}
+        {
+            "id": t.id,
+            "title": t.title,
+            "description": t.description,
+            "priority": t.priority
+        }
         for t in tasks
     ])
+
+
 
 @app.route("/tasks/<int:id>", methods=["PUT"])
 def update_task(id):

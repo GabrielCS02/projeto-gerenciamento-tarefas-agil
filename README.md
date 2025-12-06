@@ -15,4 +15,6 @@ Python + Flask + Pytest + GitHub Actions.
 3. Execute o sistema
 
 ## Mudança de Escopo
-(A ser preenchido posteriormente)
+
+Durante o desenvolvimento do projeto, o cliente solicitou a inclusão de um novo campo chamado prioridade nas tarefas, permitindo classificá-las como Alta, Média ou Baixa. Essa mudança foi registrada no Kanban e implementada por meio de novo commit, demonstrando a flexibilidade da metodologia ágil.
+
